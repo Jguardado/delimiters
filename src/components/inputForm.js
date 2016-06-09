@@ -15,14 +15,6 @@ export default class InputOnClick extends Component {
     this.setState({ input: '', value: '' });
   }
 
-  handleInputSubmit(event) {
-    event.preventDefault();
-    this.setState({ input: this.state.value }, function () {
-      this.setState({ value: '' });
-    });
-
-  }
-
   handleInputChange(event) {
     this.setState({ value: event.target.value });
   }

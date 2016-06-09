@@ -19828,6 +19828,11 @@
 	  }
 
 	  _createClass(InputOnClick, [{
+	    key: 'refreshButton',
+	    value: function refreshButton() {
+	      this.setState({ input: '', value: '' });
+	    }
+	  }, {
 	    key: 'handleInputSubmit',
 	    value: function handleInputSubmit(event) {
 	      event.preventDefault();
@@ -19883,11 +19888,16 @@
 	              { value: 'testcase' },
 	              'test'
 	            )
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { onClick: this.refreshButton.bind(this) },
+	            'Refresh'
 	          )
 	        ),
 	        'The property you have selected:',
 	        _react2.default.createElement(
-	          'h2',
+	          'h3',
 	          null,
 	          this.state.value
 	        ),
@@ -19994,7 +20004,6 @@
 	    var _this = _possibleConstructorReturn(this, Object.getPrototypeOf(LocaleList).call(this, props));
 
 	    _this.state = {
-	      storage: [],
 	      keyValue: ''
 	    };
 	    return _this;
@@ -20042,16 +20051,11 @@
 	      if (this.props.Data.propertyData.main) {
 	        var info = this.props.Data.propertyData.main;
 	        for (var key in info) {
-	          // console.log('checking func', key, info, info[key]);
 	          for (var key2 in info[key]) {
-	            // console.log('checking func', key2, info[key][key2]);
 	            for (var key3 in info[key][key2]) {
 	              console.log('checking func', key3, info[key][key2][key3], this.props.input);
 	              if (key3 == this.props.input) {
-	                //Ill need to send this out of scope to render it
-	                console.log('hallohoiah');
-	                // this.setState({ keyValue: info[key][key2][key3] });
-	                return this.settingKeyVal(info[key][key2][key3]);
+	                return info[key][key2][key3];
 	              } else {
 	                console.log('not found');
 	              }
@@ -20061,16 +20065,11 @@
 	      };
 	    }
 	  }, {
-	    key: 'settingKeyVal',
-	    value: function settingKeyVal(input) {
-	      this.setState({ keyValue: input });
-	    }
-	  }, {
 	    key: 'render',
 	    value: function render() {
-	      console.log('props', this.props);
-	      console.log('this is the passed in input', this.props.input);
-	      console.log('these are the props.length, for when its an array', this.props.Data.propertyData.length);
+	      // console.log('props', this.props);
+	      // console.log('this is the passed in input', this.props.input);
+	      // console.log('these are the props.length, for when its an array', this.props.Data.propertyData.length);
 	      if (this.props.Data.propertyData.length) {
 	        return _react2.default.createElement(
 	          'div',
@@ -20087,12 +20086,17 @@
 	            this.renderItems()
 	          )
 	        );
-	      } else if (this.props.Data.propertyData.main) {
+	      } else if (this.props.Data.propertyData.main && this.props.input) {
 	        return _react2.default.createElement(
 	          'div',
 	          null,
-	          this.renderSingleItem(),
-	          _react2.default.createElement(_singleView2.default, { keyValue: this.state.keyValue })
+	          _react2.default.createElement(
+	            'button',
+	            {
+	              onClick: this.pullData.bind(this) },
+	            'Show all'
+	          ),
+	          _react2.default.createElement(_singleView2.default, { keyValue: this.renderSingleItem() })
 	        );
 	      } else {
 	        return _react2.default.createElement(
@@ -24138,9 +24142,9 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'h1',
+	          'span',
 	          null,
-	          'OUTPUT: ',
+	          'OUTPUT:',
 	          this.props.keyValue
 	        )
 	      );

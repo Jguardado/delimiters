@@ -11,6 +11,10 @@ export default class InputOnClick extends Component {
     };
   }
 
+  refreshButton() {
+    this.setState({ input: '', value: '' });
+  }
+
   handleInputSubmit(event) {
     event.preventDefault();
     this.setState({ input: this.state.value }, function () {
@@ -37,9 +41,10 @@ export default class InputOnClick extends Component {
               <option value="alternateQuotationEnd">alternateQuotationEnd</option>
               <option value="testcase">test</option>
             </select>
+            <button onClick={this.refreshButton.bind(this)}>Refresh</button>
           </fieldset>
           The property you have selected:
-          <h2>{this.state.value}</h2>
+          <h3>{this.state.value}</h3>
           <LocaleList input={this.state.value}/>
         </form>
     );

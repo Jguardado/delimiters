@@ -9,7 +9,6 @@ export default class LocaleList extends Component {
     super(props);
 
     this.state = {
-      storage: [],
       keyValue: '',
     };
   }
@@ -45,16 +44,11 @@ export default class LocaleList extends Component {
     if (this.props.Data.propertyData.main) {
       const info = this.props.Data.propertyData.main;
       for (var key in info) {
-        // console.log('checking func', key, info, info[key]);
         for (var key2 in info[key]) {
-          // console.log('checking func', key2, info[key][key2]);
           for (var key3 in info[key][key2]) {
             console.log('checking func', key3, info[key][key2][key3], this.props.input);
             if (key3 == this.props.input) {
-              //Ill need to send this out of scope to render it
-              console.log('hallohoiah');
-              // this.setState({ keyValue: info[key][key2][key3] });
-              return this.settingKeyVal(info[key][key2][key3]);
+              return info[key][key2][key3];
             } else {
               console.log('not found');
             }
@@ -66,14 +60,10 @@ export default class LocaleList extends Component {
 
   }
 
-  settingKeyVal(input) {
-    this.setState({ keyValue: input });
-  }
-
   render() {
-    console.log('props', this.props);
-    console.log('this is the passed in input', this.props.input);
-    console.log('these are the props.length, for when its an array', this.props.Data.propertyData.length);
+    // console.log('props', this.props);
+    // console.log('this is the passed in input', this.props.input);
+    // console.log('these are the props.length, for when its an array', this.props.Data.propertyData.length);
     if (this.props.Data.propertyData.length) {
       return (
         <div>
@@ -84,11 +74,14 @@ export default class LocaleList extends Component {
           <ul className='list-group'>{this.renderItems()}</ul>
         </div>
       );
-    } else if (this.props.Data.propertyData.main) {
+    } else if (this.props.Data.propertyData.main && this.props.input) {
       return (
         <div>
-        {this.renderSingleItem()}
-          <SingleView keyValue={this.state.keyValue} />
+          <button
+          onClick={this.pullData.bind(this)}>
+          Show all
+          </button>
+          <SingleView keyValue={this.renderSingleItem()} />
         </div>
       );
 

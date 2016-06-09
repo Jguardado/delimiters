@@ -30,9 +30,9 @@ export default class InputOnClick extends Component {
   render() {
     return (
 
-        <form className='center'>
+        <form className='form-group'>
           <fieldset>
-          <legend className='headingtext'>Enter Property Name Below</legend>
+          <legend>Enter Property Name Below</legend>
             <select onChange={this.handleInputChange.bind(this)}>
               <option value="quotationStart">quotationStart</option>
               <option value="quotationEnd">quotationEnd</option>

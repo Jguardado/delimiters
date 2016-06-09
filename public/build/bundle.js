@@ -23588,13 +23588,13 @@
 	    value: function render() {
 	      return _react2.default.createElement(
 	        'form',
-	        { className: 'center' },
+	        { className: 'form-group' },
 	        _react2.default.createElement(
 	          'fieldset',
 	          null,
 	          _react2.default.createElement(
 	            'legend',
-	            { className: 'headingtext' },
+	            null,
 	            'Enter Property Name Below'
 	          ),
 	          _react2.default.createElement(

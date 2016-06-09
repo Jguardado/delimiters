@@ -24,14 +24,13 @@ export default class InputOnClick extends Component {
   }
 
   handleInputChange(event) {
-    console.log('this is the event target', event.target.value);
     this.setState({ value: event.target.value });
   }
 
   render() {
     return (
 
-<form className='center'>
+        <form className='center'>
           <fieldset>
           <legend className='headingtext'>Enter Property Name Below</legend>
             <select onChange={this.handleInputChange.bind(this)}>
@@ -43,7 +42,7 @@ export default class InputOnClick extends Component {
             </select>
             <button onClick={this.refreshButton.bind(this)}>Refresh</button>
           </fieldset>
-          The property you have selected:
+          <legend>The property you have selected:</legend>
           <h3>{this.state.value}</h3>
           <LocaleList input={this.state.value}/>
         </form>

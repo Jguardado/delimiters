@@ -15,13 +15,11 @@ export default class LocaleList extends Component {
 
   pullData(event) {
     event.preventDefault();
-    console.log('inside of the pullData', this.props.input);
     this.props.getPropertyData(this.props.input);
   }
 
   renderItems() {
     const _self = this;
-    console.log('inside renderItems', this.props.Data.propertyData);
     return this.props.Data.propertyData.map(function (item) {
       return (
         <li
@@ -34,19 +32,16 @@ export default class LocaleList extends Component {
 
   renderProperty(path) {
     let separated = path.split('/');
-    console.log('showing single item', separated);
     this.props.getSinglePage(separated[1]);
   }
 
   renderSingleItem() {
     //I know this is very bad practice
-    console.log('renderSingleItem called');
     if (this.props.Data.propertyData.main) {
       const info = this.props.Data.propertyData.main;
       for (var key in info) {
         for (var key2 in info[key]) {
           for (var key3 in info[key][key2]) {
-            console.log('checking func', key3, info[key][key2][key3], this.props.input);
             if (key3 == this.props.input) {
               return info[key][key2][key3];
             } else {
@@ -61,9 +56,6 @@ export default class LocaleList extends Component {
   }
 
   render() {
-    // console.log('props', this.props);
-    // console.log('this is the passed in input', this.props.input);
-    // console.log('these are the props.length, for when its an array', this.props.Data.propertyData.length);
     if (this.props.Data.propertyData.length) {
       return (
         <div>

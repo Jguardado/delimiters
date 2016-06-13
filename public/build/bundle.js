@@ -21467,8 +21467,6 @@
 	var SINGLEPAGE_DATA = exports.SINGLEPAGE_DATA = 'SINGLEPAGE_DATA';
 
 	function getPropertyData(propertyName) {
-	  //I will be adding the property name here
-	  console.log('example string /property' + propertyName);
 	  var request = _axios2.default.get('/property' + propertyName);
 
 	  return {
@@ -21478,9 +21476,8 @@
 	}
 
 	function getSinglePage(country) {
-	  console.log('example string /country' + country);
 	  var request = _axios2.default.get('/country' + country);
-	  console.log('getting our request', request);
+
 	  return {
 	    type: SINGLEPAGE_DATA,
 	    payload: request
@@ -23569,14 +23566,6 @@
 	    key: 'refreshButton',
 	    value: function refreshButton() {
 	      this.setState({ input: '', value: '' });
-	    }
-	  }, {
-	    key: 'handleInputSubmit',
-	    value: function handleInputSubmit(event) {
-	      event.preventDefault();
-	      this.setState({ input: this.state.value }, function () {
-	        this.setState({ value: '' });
-	      });
 	    }
 	  }, {
 	    key: 'handleInputChange',

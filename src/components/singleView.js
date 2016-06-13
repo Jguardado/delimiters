@@ -4,7 +4,7 @@ export default class SingleView extends Component {
   render() {
     return (
       <div>
-      <span>OUTPUT:{this.props.keyValue}</span>
+      <h3 className='bg-success'>OUTPUT:  {this.props.keyValue}</h3>
       </div>
     );
   }

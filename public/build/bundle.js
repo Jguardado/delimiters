@@ -23588,7 +23588,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'select',
-	            { onChange: this.handleInputChange.bind(this) },
+	            { className: 'form-control input-lg', onChange: this.handleInputChange.bind(this) },
 	            _react2.default.createElement(
 	              'option',
 	              { value: 'quotationStart' },
@@ -23617,7 +23617,7 @@
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { onClick: this.refreshButton.bind(this) },
+	            { className: 'btn btn-default', onClick: this.refreshButton.bind(this) },
 	            'Refresh'
 	          )
 	        ),
@@ -23749,6 +23749,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            {
+	              className: 'btn btn-default',
 	              onClick: this.pullData.bind(this) },
 	            'Show all'
 	          ),
@@ -23765,6 +23766,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            {
+	              className: 'btn btn-default',
 	              onClick: this.pullData.bind(this) },
 	            'Show all'
 	          ),
@@ -23777,6 +23779,7 @@
 	          _react2.default.createElement(
 	            'button',
 	            {
+	              className: 'btn btn-default',
 	              onClick: this.pullData.bind(this) },
 	            'Show all'
 	          )
@@ -23844,9 +23847,9 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(
-	          'span',
-	          null,
-	          'OUTPUT:',
+	          'h3',
+	          { className: 'bg-success' },
+	          'OUTPUT:  ',
 	          this.props.keyValue
 	        )
 	      );

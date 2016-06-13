@@ -60,6 +60,7 @@ export default class LocaleList extends Component {
       return (
         <div>
           <button
+          className='btn btn-default'
           onClick={this.pullData.bind(this)}>
           Show all
           </button>
@@ -70,6 +71,7 @@ export default class LocaleList extends Component {
       return (
         <div>
           <button
+          className='btn btn-default'
           onClick={this.pullData.bind(this)}>
           Show all
           </button>
@@ -81,6 +83,7 @@ export default class LocaleList extends Component {
       return (
         <div>
           <button
+          className='btn btn-default'
           onClick={this.pullData.bind(this)}>
           Show all
           </button>
